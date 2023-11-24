@@ -1,12 +1,25 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import {
+  LoginGoogleScreen,
+  LoginScreen,
+  SigninScreen,
+  TermsScreen,
+} from '../screens';
 
-const AuthStackNav = () => {
+const Stack = createStackNavigator();
+
+export const AuthStackNav = () => {
   return (
-    <View>
-      <Text>AuthStackNav</Text>
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerTransparent: true,
+        headerBackTitleVisible: false,
+        headerTitle: '',
+      }}>
+      <Stack.Screen name="LoginGoogle" component={LoginGoogleScreen} />
+      <Stack.Screen name="LoginEmail" component={LoginScreen} />
+      <Stack.Screen name="Signin" component={SigninScreen} />
+      <Stack.Screen name="Terms" component={TermsScreen} />
+    </Stack.Navigator>
   );
 };
-
-export default AuthStackNav;

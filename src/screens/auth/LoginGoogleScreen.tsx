@@ -3,8 +3,8 @@ import React from 'react';
 
 const LoginGoogleScreen = () => {
   return (
-    <View>
-      <Text>LoginGoogleScreen</Text>
+    <View style={{flex: 1}}>
+      <Text style={{color: 'black'}}>LoginGoogleScreen</Text>
     </View>
   );
 };
