@@ -20,7 +20,7 @@ const LoginGoogleScreen = ({navigation}: PropsAuth) => {
   } = useContext(ThemeContext);
 
   return (
-    <ContainerComponent isScrool>
+    <ContainerComponent isScroll>
       <View style={{marginTop: Dimensions.get('window').height * 0.15}}>
         <LogoComponent />
       </View>
@@ -36,11 +36,11 @@ const LoginGoogleScreen = ({navigation}: PropsAuth) => {
 
       <SectionComponent>
         <Text style={{fontSize: 16, textAlign: 'left', color: colors.text}}>
-          Nuevos usuarios: al crear una cuenta en nuestra aplicacion aceptas los{' '}
+          Nuevos usuarios: al crear una cuenta en nuestra aplicación aceptas los{' '}
           <Text
             style={{color: colors.primary, textDecorationLine: 'underline'}}
-            onPress={() => navigation.navigate('Terminos')}>
-            Terminos y Condiciones
+            onPress={() => navigation.navigate('Terms')}>
+            Términos y Condiciones
           </Text>{' '}
           de nuestros servicios
         </Text>

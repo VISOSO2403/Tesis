@@ -3,14 +3,14 @@ import {View, StyleProp, ViewStyle, ScrollView, StyleSheet} from 'react-native';
 
 interface Props {
   children: ReactNode;
-  isScrool?: boolean;
+  isScroll?: boolean;
   styles?: StyleProp<ViewStyle>;
 }
 
 const ContainerComponent = (props: Props) => {
-  const {children, isScrool, styles} = props;
+  const {children, isScroll, styles} = props;
 
-  return isScrool ? (
+  return isScroll ? (
     <ScrollView style={[stylesCont.container, styles]}>{children}</ScrollView>
   ) : (
     <View style={[stylesCont.container, styles]}>{children}</View>

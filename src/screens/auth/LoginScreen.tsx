@@ -28,7 +28,7 @@ const LoginScreen = ({navigation}: PropsAuth) => {
   } = useContext(ThemeContext);
 
   return (
-    <ContainerComponent isScrool>
+    <ContainerComponent isScroll>
       <View style={{marginTop: Dimensions.get('window').height * 0.15}}>
         <LogoComponent />
       </View>
@@ -62,8 +62,7 @@ const LoginScreen = ({navigation}: PropsAuth) => {
               styles={{textDecorationLine: 'underline'}}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('ForgetPassword')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Forget')}>
             <TextComponent
               text="¿Olvidaste tu contraseña?"
               color={colors.primary}

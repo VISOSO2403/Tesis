@@ -9,12 +9,10 @@ import {
   SectionComponent,
   TextComponent,
 } from '../../components';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {globalTheme} from '../../theme/globalTheme';
 import {ThemeContext} from '../../context/theme/ThemeContext';
-import {PropsAuth} from './LoginGoogleScreen';
 
-const SigninScreen = ({navigation}: PropsAuth) => {
+const ForgetPassScreen = () => {
   const {
     theme: {colors, textButton},
   } = useContext(ThemeContext);
@@ -27,56 +25,20 @@ const SigninScreen = ({navigation}: PropsAuth) => {
 
       <SectionComponent>
         <TextComponent
-          text="Registrarse"
+          text="Olvidaste tu contraseña?"
           styles={{fontWeight: '700'}}
           size={28}
         />
-        <TextComponent text="Bienvenido a travel B" />
+        <TextComponent text="Recuperar contraseña" />
       </SectionComponent>
 
       <SectionComponent>
-        <InputComponent
-          value={''}
-          placeholder="Usuario"
-          type="default"
-          onChange={() => {}}
-        />
-
         <InputComponent
           value={''}
           placeholder="Correo electrónico"
           type="email-address"
           onChange={() => {}}
         />
-
-        <InputComponent
-          value={''}
-          placeholder="Contraseña"
-          type="default"
-          isSecure
-          onChange={() => {}}
-        />
-
-        <InputComponent
-          value={''}
-          placeholder="Confirmar Contraseña"
-          type="default"
-          isSecure
-          onChange={() => {}}
-        />
-
-        <RowComponent styles={{justifyContent: 'space-between'}}>
-          <TouchableOpacity>
-            <TextComponent text="¿Ya tienes una cuenta?" color={colors.text} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('LoginEmail')}>
-            <TextComponent
-              text="Ingresar"
-              color={colors.primary}
-              styles={{textDecorationLine: 'underline'}}
-            />
-          </TouchableOpacity>
-        </RowComponent>
       </SectionComponent>
 
       <SectionComponent styles={globalTheme.buttons}>
@@ -90,16 +52,19 @@ const SigninScreen = ({navigation}: PropsAuth) => {
           }}
           onPress={() => {}}>
           <TextComponent
-            text="Registrar"
+            text="Enviar correo de recuperación"
             size={20}
             color={textButton}
             font="bold"
           />
         </RowComponent>
         {/* )} */}
+        <View style={{alignContent: 'center', alignItems: 'center', top: 10}}>
+          <TextComponent text="Revisa tu carpeta de spam " />
+        </View>
       </SectionComponent>
     </ContainerComponent>
   );
 };
 
-export default SigninScreen;
+export default ForgetPassScreen;

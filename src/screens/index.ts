@@ -8,6 +8,7 @@ import WalletScreen from './WalletScreen';
 import LoginGoogleScreen from './auth/LoginGoogleScreen';
 import LoginScreen from './auth/LoginScreen';
 import SigninScreen from './auth/SigninScreen';
+import ForgetPassScreen from './auth/ForgetPassScreen';
 
 export {
   HomeScreen,
@@ -20,4 +21,5 @@ export {
   LoginGoogleScreen,
   LoginScreen,
   SigninScreen,
+  ForgetPassScreen,
 }
