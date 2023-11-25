@@ -10,7 +10,9 @@ const ThemeState = ({children}: any) => {
 function App(): JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Router />
+      <ThemeState>
+        <Router />
+      </ThemeState>
     </SafeAreaView>
   );
 }
