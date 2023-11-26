@@ -1,12 +1,23 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import {CameraScreen, HomeScreen} from '../screens';
 
-const UserStackNav = () => {
+const Stack = createStackNavigator();
+
+export const UserStackNav = () => {
   return (
-    <View>
-      <Text>UserStackNav</Text>
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerTransparent: true,
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerStyle: {
+          elevation: 0,
+          shadowColor: 'transparent',
+        },
+      }}>
+      <Stack.Screen name="Inicio" component={HomeScreen} />
+      <Stack.Screen name="Cámara" component={CameraScreen} />
+    </Stack.Navigator>
   );
 };
-
-export default UserStackNav;
