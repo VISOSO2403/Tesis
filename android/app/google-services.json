@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "623551830531",
+    "firebase_url": "https://travelb-c602d-default-rtdb.firebaseio.com",
+    "project_id": "travelb-c602d",
+    "storage_bucket": "travelb-c602d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623551830531:android:3bb0075eca3962803d4c36",
+        "android_client_info": {
+          "package_name": "com.travelb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623551830531-h4vdi1lbe4qqkck4pcqjvbbtqh5b660d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.travelb",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "623551830531-i19rst7vdaf38b613801stu8rutg9k4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgWPREl_zU334gjmaHKOK6ZiwijgDy5GM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623551830531-i19rst7vdaf38b613801stu8rutg9k4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
