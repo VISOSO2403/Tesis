@@ -21,11 +21,21 @@ import {
 import {PropsAuth} from './LoginGoogleScreen';
 import {ThemeContext} from '../../context/theme/ThemeContext';
 import {globalTheme} from '../../theme/globalTheme';
+import useAuth from '../../hooks/auth/useAuth';
 
 const LoginScreen = ({navigation}: PropsAuth) => {
   const {
     theme: {colors, textButton},
   } = useContext(ThemeContext);
+
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    changeLoading,
+    handleSigInWithEmail,
+  } = useAuth();
 
   return (
     <ContainerComponent isScroll>
@@ -40,22 +50,22 @@ const LoginScreen = ({navigation}: PropsAuth) => {
 
       <SectionComponent>
         <InputComponent
-          value={''}
-          placeholder="Correo electronico"
+          value={email}
+          placeholder="Correo electrónico"
           type="email-address"
-          onChange={() => {}}
+          onChange={val => setEmail(val)}
         />
 
         <InputComponent
-          value={''}
+          value={password}
           placeholder="Contraseña"
           type="default"
           isSecure
-          onChange={() => {}}
+          onChange={val => setPassword(val)}
         />
 
         <RowComponent styles={{justifyContent: 'space-between'}}>
-          <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
+          <TouchableOpacity onPress={() => navigation.navigate('CreateUser')}>
             <TextComponent
               text="Registrarse"
               color={colors.primary}
@@ -73,23 +83,23 @@ const LoginScreen = ({navigation}: PropsAuth) => {
       </SectionComponent>
 
       <SectionComponent styles={globalTheme.buttons}>
-        {/* {ChangeLoading ? ( */}
-        {/* <LoadingComponent size={30} /> */}
-        {/* ) : ( */}
-        <RowComponent
-          styles={{
-            ...globalTheme.buttons,
-            backgroundColor: colors.primary,
-          }}
-          onPress={() => {}}>
-          <TextComponent
-            text="Ingresar"
-            size={20}
-            color={textButton}
-            font="bold"
-          />
-        </RowComponent>
-        {/* )} */}
+        {changeLoading ? (
+          <LoadingComponent size={30} />
+        ) : (
+          <RowComponent
+            styles={{
+              ...globalTheme.buttons,
+              backgroundColor: colors.primary,
+            }}
+            onPress={() => handleSigInWithEmail()}>
+            <TextComponent
+              text="Ingresar"
+              size={20}
+              color={textButton}
+              font="bold"
+            />
+          </RowComponent>
+        )}
       </SectionComponent>
     </ContainerComponent>
   );

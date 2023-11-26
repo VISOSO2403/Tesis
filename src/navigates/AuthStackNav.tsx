@@ -1,9 +1,9 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {
+  CreateUserScreen,
   ForgetPassScreen,
   LoginGoogleScreen,
   LoginScreen,
-  SigninScreen,
   TermsScreen,
 } from '../screens';
 
@@ -19,7 +19,7 @@ export const AuthStackNav = () => {
       }}>
       <Stack.Screen name="LoginGoogle" component={LoginGoogleScreen} />
       <Stack.Screen name="LoginEmail" component={LoginScreen} />
-      <Stack.Screen name="Signin" component={SigninScreen} />
+      <Stack.Screen name="CreateUser" component={CreateUserScreen} />
       <Stack.Screen name="Forget" component={ForgetPassScreen} />
       <Stack.Screen name="Terms" component={TermsScreen} />
     </Stack.Navigator>

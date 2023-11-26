@@ -11,11 +11,14 @@ import {
 } from '../../components';
 import {globalTheme} from '../../theme/globalTheme';
 import {ThemeContext} from '../../context/theme/ThemeContext';
+import useAuth from '../../hooks/auth/useAuth';
 
 const ForgetPassScreen = () => {
   const {
     theme: {colors, textButton},
   } = useContext(ThemeContext);
+
+  const {email, setEmail, changeLoading, handleForgetPassword} = useAuth();
 
   return (
     <ContainerComponent isScroll>
@@ -34,31 +37,31 @@ const ForgetPassScreen = () => {
 
       <SectionComponent>
         <InputComponent
-          value={''}
+          value={email}
           placeholder="Correo electrónico"
           type="email-address"
-          onChange={() => {}}
+          onChange={val => setEmail(val)}
         />
       </SectionComponent>
 
       <SectionComponent styles={globalTheme.buttons}>
-        {/* {ChangeLoading ? ( */}
-        {/* <LoadingComponent size={30} /> */}
-        {/* ) : ( */}
-        <RowComponent
-          styles={{
-            ...globalTheme.buttons,
-            backgroundColor: colors.primary,
-          }}
-          onPress={() => {}}>
-          <TextComponent
-            text="Enviar correo de recuperación"
-            size={20}
-            color={textButton}
-            font="bold"
-          />
-        </RowComponent>
-        {/* )} */}
+        {changeLoading ? (
+          <LoadingComponent size={30} />
+        ) : (
+          <RowComponent
+            styles={{
+              ...globalTheme.buttons,
+              backgroundColor: colors.primary,
+            }}
+            onPress={() => handleForgetPassword()}>
+            <TextComponent
+              text="Enviar correo de recuperación"
+              size={20}
+              color={textButton}
+              font="bold"
+            />
+          </RowComponent>
+        )}
         <View style={{alignContent: 'center', alignItems: 'center', top: 10}}>
           <TextComponent text="Revisa tu carpeta de spam " />
         </View>

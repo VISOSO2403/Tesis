@@ -13,11 +13,23 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {globalTheme} from '../../theme/globalTheme';
 import {ThemeContext} from '../../context/theme/ThemeContext';
 import {PropsAuth} from './LoginGoogleScreen';
+import useAuth from '../../hooks/auth/useAuth';
 
-const SigninScreen = ({navigation}: PropsAuth) => {
+const CreateUserScreen = ({navigation}: PropsAuth) => {
   const {
     theme: {colors, textButton},
   } = useContext(ThemeContext);
+
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    confirmPass,
+    setConfirmPass,
+    changeLoading,
+    handleCreateUserWithEmail,
+  } = useAuth();
 
   return (
     <ContainerComponent isScroll>
@@ -36,33 +48,26 @@ const SigninScreen = ({navigation}: PropsAuth) => {
 
       <SectionComponent>
         <InputComponent
-          value={''}
-          placeholder="Usuario"
-          type="default"
-          onChange={() => {}}
-        />
-
-        <InputComponent
-          value={''}
+          value={email}
           placeholder="Correo electrónico"
           type="email-address"
-          onChange={() => {}}
+          onChange={val => setEmail(val)}
         />
 
         <InputComponent
-          value={''}
+          value={password}
           placeholder="Contraseña"
           type="default"
           isSecure
-          onChange={() => {}}
+          onChange={val => setPassword(val)}
         />
 
         <InputComponent
-          value={''}
+          value={confirmPass}
           placeholder="Confirmar Contraseña"
           type="default"
           isSecure
-          onChange={() => {}}
+          onChange={val => setConfirmPass(val)}
         />
 
         <RowComponent styles={{justifyContent: 'space-between'}}>
@@ -80,26 +85,26 @@ const SigninScreen = ({navigation}: PropsAuth) => {
       </SectionComponent>
 
       <SectionComponent styles={globalTheme.buttons}>
-        {/* {ChangeLoading ? ( */}
-        {/* <LoadingComponent size={30} /> */}
-        {/* ) : ( */}
-        <RowComponent
-          styles={{
-            ...globalTheme.buttons,
-            backgroundColor: colors.primary,
-          }}
-          onPress={() => {}}>
-          <TextComponent
-            text="Registrar"
-            size={20}
-            color={textButton}
-            font="bold"
-          />
-        </RowComponent>
-        {/* )} */}
+        {changeLoading ? (
+          <LoadingComponent size={30} />
+        ) : (
+          <RowComponent
+            styles={{
+              ...globalTheme.buttons,
+              backgroundColor: colors.primary,
+            }}
+            onPress={() => handleCreateUserWithEmail()}>
+            <TextComponent
+              text="Registrar"
+              size={20}
+              color={textButton}
+              font="bold"
+            />
+          </RowComponent>
+        )}
       </SectionComponent>
     </ContainerComponent>
   );
 };
 
-export default SigninScreen;
+export default CreateUserScreen;

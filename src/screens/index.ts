@@ -7,8 +7,8 @@ import TermsScreen from './TermsScreen';
 import WalletScreen from './WalletScreen';
 import LoginGoogleScreen from './auth/LoginGoogleScreen';
 import LoginScreen from './auth/LoginScreen';
-import SigninScreen from './auth/SigninScreen';
 import ForgetPassScreen from './auth/ForgetPassScreen';
+import CreateUserScreen from './auth/CreateUserScreen';
 
 export {
   HomeScreen,
@@ -20,6 +20,6 @@ export {
   WalletScreen,
   LoginGoogleScreen,
   LoginScreen,
-  SigninScreen,
+  CreateUserScreen,
   ForgetPassScreen,
 }
