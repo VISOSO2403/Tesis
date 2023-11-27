@@ -9,19 +9,21 @@ import {
 import {IconComponent} from '../components';
 import {ThemeContext} from '../context/theme/ThemeContext';
 import {UserStackNav} from './UserStackNav';
+import {UserDrawerOptions} from './UserDrawerOptions';
 
 const Drawer = createDrawerNavigator();
 
 export const UserDrawerNav = () => {
   const {
-    theme: {colors},
+    theme: {colors, textButton},
   } = useContext(ThemeContext);
 
   return (
     <Drawer.Navigator
+      drawerContent={props => <UserDrawerOptions {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: '#ACFDFF',
+        drawerActiveBackgroundColor: colors.primary,
         drawerActiveTintColor: '#000',
         drawerInactiveBackgroundColor: colors.background,
         drawerLabelStyle: {
