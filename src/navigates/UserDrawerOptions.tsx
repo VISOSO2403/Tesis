@@ -16,7 +16,7 @@ export const UserDrawerOptions = (props: DrawerContentComponentProps) => {
   } = useContext(ThemeContext);
 
   return (
-    <View style={{flex: 1, backgroundColor: colors.background}}>
+    <View style={{flex: 1}}>
       <View
         style={{
           height: 200,
@@ -51,7 +51,7 @@ export const UserDrawerOptions = (props: DrawerContentComponentProps) => {
             iconSize={24}
             iconColor={colors.text}
           />
-          <TextComponent text=" Cerrar sesión" color={colors.text} size={18} />
+          <TextComponent text=" Cerrar sesión" color={colors.text} size={13} />
         </RowComponent>
       </View>
     </View>

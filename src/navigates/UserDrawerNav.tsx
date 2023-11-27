@@ -23,11 +23,13 @@ export const UserDrawerNav = () => {
       drawerContent={props => <UserDrawerOptions {...props} />}
       screenOptions={{
         headerShown: false,
+        drawerStyle: {
+          backgroundColor: colors.background,
+          width: 250,
+        },
         drawerActiveBackgroundColor: colors.primary,
-        drawerActiveTintColor: '#000',
         drawerInactiveBackgroundColor: colors.background,
         drawerLabelStyle: {
-          marginLeft: -20,
           fontSize: 15,
           color: colors.text,
         },
