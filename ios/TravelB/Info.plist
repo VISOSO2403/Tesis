@@ -4,10 +4,11 @@
 	<dict>
 		<key>NSCameraUsageDescription</key>
 		<string>$(PRODUCT_NAME) needs access to your Camera.</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your Location</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your Location</string>
 
-		<!-- optionally, if you want to record audio: -->
-		<key>NSMicrophoneUsageDescription</key>
-		<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>en</string>
 		<key>CFBundleDisplayName</key>
