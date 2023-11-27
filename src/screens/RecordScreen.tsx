@@ -11,7 +11,10 @@ import {PropsNavigate} from './HomeScreen';
 const RecordScreen = ({navigation}: PropsNavigate) => {
   return (
     <View style={{flex: 1}}>
-      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
+      <FabComponent
+        iconName="arrow-back"
+        onPress={() => navigation.openDrawer()}
+      />
       <ContainerComponent>
         <View style={{top: 30, alignItems: 'center'}}>
           <TextComponent text="Historial" size={30} font="bold" />
