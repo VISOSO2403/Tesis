@@ -8,16 +8,11 @@ export const UserStackNav = () => {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerShown: false,
         headerTransparent: true,
-        headerBackTitleVisible: false,
-        headerTitle: '',
-        headerStyle: {
-          elevation: 0,
-          shadowColor: 'transparent',
-        },
       }}>
       <Stack.Screen name="Inicio" component={HomeScreen} />
-      <Stack.Screen name="Cámara" component={CameraScreen} />
+      <Stack.Screen name="Camera" component={CameraScreen} />
     </Stack.Navigator>
   );
 };
