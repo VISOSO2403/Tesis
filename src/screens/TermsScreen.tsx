@@ -1,20 +1,26 @@
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
-import {ContainerComponent, TextComponent} from '../components';
+import {
+  ContainerComponent,
+  FabComponent,
+  SectionComponent,
+  TextComponent,
+} from '../components';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {PropsAuth} from './auth/LoginGoogleScreen';
 
-const TermsScreen = () => {
+const TermsScreen = ({navigation}: PropsAuth) => {
   const {top} = useSafeAreaInsets();
 
   return (
-    <View style={stylesTerms.container}>
-      <ContainerComponent styles={stylesTerms.view}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <TextComponent
-            text="Términos y condiciones de uso de la aplicación Travel B"
-            styles={stylesTerms.title}
-            size={25}
-          />
+    <View style={{flex: 1}}>
+      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
+
+      <ContainerComponent isScroll>
+        <View style={{top: 30, alignItems: 'center'}}>
+          <TextComponent text="Términos y condiciones" size={22} font="bold" />
+        </View>
+        <SectionComponent styles={{flex: 1, top: 50}}>
           <TextComponent
             styles={stylesTerms.text}
             text="Bienvenido/a a la aplicación Travel B para renta de scooters y
@@ -28,6 +34,7 @@ const TermsScreen = () => {
             text="Servicio"
             styles={{...stylesTerms.title, marginTop: 10}}
             size={20}
+            font="bold"
           />
           <TextComponent
             styles={stylesTerms.text}
@@ -39,7 +46,12 @@ const TermsScreen = () => {
             uso de nuestros servicios."
           />
 
-          <TextComponent text="Cuenta" styles={stylesTerms.title} size={20} />
+          <TextComponent
+            text="Cuenta"
+            styles={stylesTerms.title}
+            size={20}
+            font="bold"
+          />
           <TextComponent
             styles={stylesTerms.text}
             text="Para utilizar nuestra aplicación, deberás crear una cuenta con
@@ -49,7 +61,12 @@ const TermsScreen = () => {
             segura y protegida."
           />
 
-          <TextComponent text="Pago" styles={stylesTerms.title} size={20} />
+          <TextComponent
+            text="Pago"
+            styles={stylesTerms.title}
+            size={20}
+            font="bold"
+          />
           <TextComponent
             styles={stylesTerms.text}
             text="El costo de renta de nuestros scooters y bicicletas eléctricas se
@@ -63,6 +80,7 @@ const TermsScreen = () => {
             text="Uso del vehículo"
             styles={stylesTerms.title}
             size={20}
+            font="bold"
           />
           <TextComponent
             styles={stylesTerms.text}
@@ -77,6 +95,7 @@ const TermsScreen = () => {
             text="Daños o perdidas"
             styles={stylesTerms.title}
             size={20}
+            font="bold"
           />
           <TextComponent
             styles={stylesTerms.text}
@@ -90,6 +109,7 @@ const TermsScreen = () => {
             text="Cancelación"
             styles={stylesTerms.title}
             size={20}
+            font="bold"
           />
           <TextComponent
             styles={stylesTerms.text}
@@ -103,6 +123,7 @@ const TermsScreen = () => {
             text="Modificaciones"
             styles={stylesTerms.title}
             size={20}
+            font="bold"
           />
           <TextComponent
             styles={stylesTerms.text}
@@ -122,26 +143,16 @@ const TermsScreen = () => {
             condiciones en su totalidad. Si no estás de acuerdo con ellos, por
             favor no utilices nuestros servicios."
           />
-        </ScrollView>
+
+          <View style={{height: 100}} />
+        </SectionComponent>
       </ContainerComponent>
     </View>
   );
 };
 
 const stylesTerms = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 20,
-    padding: 15,
-  },
-  view: {
-    top: 30,
-    alignItems: 'center',
-  },
   title: {
-    fontWeight: 'bold',
     textAlign: 'auto',
     marginBottom: 5,
   },
