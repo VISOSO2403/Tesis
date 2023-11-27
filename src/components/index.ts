@@ -7,6 +7,7 @@ import IconComponent from './IconComponent';
 import InputComponent from './InputComponent';
 import LoadingComponent from './LoadingComponent';
 import FabComponent from './FabComponent';
+import MapComponent from './MapComponent';
 
 export {
   ContainerComponent,
@@ -17,5 +18,6 @@ export {
   IconComponent,
   InputComponent,
   LoadingComponent,
-  FabComponent
+  FabComponent,
+  MapComponent
 }

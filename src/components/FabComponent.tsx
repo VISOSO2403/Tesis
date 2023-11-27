@@ -8,11 +8,10 @@ interface Props {
   iconSize?: number;
   onPress: () => void;
   background?: string;
-  styles?: StyleProp<ViewStyle>;
 }
 
 const FabComponent = (props: Props) => {
-  const {iconName, iconSize, onPress, background, styles} = props;
+  const {iconName, iconSize, onPress, background} = props;
 
   const {
     theme: {colors, textButton},

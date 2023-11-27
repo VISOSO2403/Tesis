@@ -2,7 +2,12 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useContext} from 'react';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {ThemeContext} from '../context/theme/ThemeContext';
-import {FabComponent, IconComponent, TextComponent} from '../components';
+import {
+  FabComponent,
+  IconComponent,
+  MapComponent,
+  TextComponent,
+} from '../components';
 
 export interface PropsNavigate extends DrawerScreenProps<any, any> {}
 
@@ -13,18 +18,9 @@ const HomeScreen = ({navigation}: PropsNavigate) => {
 
   return (
     <View style={{flex: 1}}>
-      <FabComponent iconName="menu" onPress={() => navigation.openDrawer()} />
+      <MapComponent />
 
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'white',
-        }}>
-        {/* <MapComponent /> */}
-        <Text>Mapa</Text>
-      </View>
+      <FabComponent iconName="menu" onPress={() => navigation.openDrawer()} />
 
       <TouchableOpacity
         activeOpacity={0.8}
