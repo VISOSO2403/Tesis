@@ -35,10 +35,7 @@ const CameraScreen = ({navigation}: PropsNavigate) => {
 
   return (
     <View style={{flex: 1}}>
-      <FabComponent
-        iconName="chevron-back-sharp"
-        onPress={() => navigation.goBack()}
-      />
+      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
       <Camera
         style={StyleSheet.absoluteFill}
         device={device}
