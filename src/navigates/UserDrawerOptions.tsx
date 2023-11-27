@@ -6,8 +6,11 @@ import {
 } from '@react-navigation/drawer';
 import {ThemeContext} from '../context/theme/ThemeContext';
 import {IconComponent, RowComponent, TextComponent} from '../components';
+import useAuth from '../hooks/auth/useAuth';
 
 export const UserDrawerOptions = (props: DrawerContentComponentProps) => {
+  const {handleSignOut} = useAuth();
+
   const {
     theme: {colors, dividerColor},
   } = useContext(ThemeContext);
@@ -42,7 +45,7 @@ export const UserDrawerOptions = (props: DrawerContentComponentProps) => {
           borderTopColor: dividerColor,
           backgroundColor: colors.background,
         }}>
-        <RowComponent onPress={() => {}}>
+        <RowComponent onPress={() => handleSignOut()}>
           <IconComponent
             iconName="log-out-outline"
             iconSize={24}

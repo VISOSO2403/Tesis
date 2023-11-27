@@ -58,6 +58,12 @@ const useAuth = () => {
     }
   };
 
+  const handleSignOut = async () => {
+    await auth()
+      .signOut()
+      .then(() => Alert.alert('Información', 'Se ha cerrado la sesión'));
+  };
+
   const handleForgetPassword = async () => {
     await auth()
       .sendPasswordResetEmail(email)
@@ -76,6 +82,7 @@ const useAuth = () => {
     handleSigInWithEmail,
     handleCreateUserWithEmail,
     handleForgetPassword,
+    handleSignOut,
   };
 };
 
