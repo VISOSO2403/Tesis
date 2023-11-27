@@ -74,19 +74,20 @@ const CreateUserScreen = ({navigation}: PropsAuth) => {
           />
 
           <RowComponent styles={{justifyContent: 'space-between'}}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('LoginEmail')}>
               <TextComponent
                 text="¿Ya tienes una cuenta?"
-                color={colors.text}
+                color={colors.border}
+                styles={{textDecorationLine: 'underline'}}
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('LoginEmail')}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('LoginEmail')}>
               <TextComponent
                 text="Ingresar"
                 color={colors.primary}
                 styles={{textDecorationLine: 'underline'}}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </RowComponent>
         </SectionComponent>
 

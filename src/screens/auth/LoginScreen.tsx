@@ -66,14 +66,14 @@ const LoginScreen = ({navigation}: PropsAuth) => {
             <TouchableOpacity onPress={() => navigation.navigate('CreateUser')}>
               <TextComponent
                 text="Registrarse"
-                color={colors.primary}
+                color={colors.border}
                 styles={{textDecorationLine: 'underline'}}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Forget')}>
               <TextComponent
                 text="¿Olvidaste tu contraseña?"
-                color={colors.primary}
+                color={colors.border}
                 styles={{textDecorationLine: 'underline'}}
               />
             </TouchableOpacity>

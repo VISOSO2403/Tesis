@@ -38,7 +38,7 @@ const LoginGoogleScreen = ({navigation}: PropsAuth) => {
         <Text style={{fontSize: 16, textAlign: 'left', color: colors.text}}>
           Nuevos usuarios: al crear una cuenta en nuestra aplicación aceptas los{' '}
           <Text
-            style={{color: colors.primary, textDecorationLine: 'underline'}}
+            style={{color: colors.border, textDecorationLine: 'underline'}}
             onPress={() => navigation.navigate('Terms')}>
             Términos y Condiciones
           </Text>{' '}

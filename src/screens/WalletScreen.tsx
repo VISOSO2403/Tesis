@@ -36,11 +36,11 @@ const WalletScreen = ({navigation}: PropsNavigate) => {
                 backgroundColor: colors.primary,
               }}
               onPress={() => {}}>
-              <IconComponent iconName="card-outline" />
+              <IconComponent iconName="card" iconColor={colors.text} />
               <TextComponent
                 text=" Agregar tarjeta"
                 size={20}
-                color={textButton}
+                color={colors.text}
                 font="bold"
               />
             </RowComponent>

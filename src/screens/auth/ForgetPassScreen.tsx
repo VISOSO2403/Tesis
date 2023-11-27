@@ -32,7 +32,7 @@ const ForgetPassScreen = ({navigation}: PropsAuth) => {
 
         <SectionComponent>
           <TextComponent
-            text="Olvidaste tu contraseña?"
+            text="¿Olvidaste tu contraseña?"
             styles={{fontWeight: '700'}}
             size={28}
           />
