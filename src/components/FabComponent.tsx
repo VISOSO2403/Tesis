@@ -1,14 +1,6 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, StyleProp, ViewStyle, TouchableOpacity} from 'react-native';
 import React, {useContext} from 'react';
 import {ThemeContext} from '../context/theme/ThemeContext';
-import UserDrawerOptions from '../navigates/UserDrawerOptions';
 import IconComponent from './IconComponent';
 
 interface Props {
@@ -63,7 +55,7 @@ export const stylesFab = StyleSheet.create({
     shadowOpacity: 0.27,
     shadowRadius: 4.65,
 
-    elevation: 6,
+    elevation: 4,
   },
 });
 

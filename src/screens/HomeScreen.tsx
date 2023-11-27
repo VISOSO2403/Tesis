@@ -20,7 +20,7 @@ const HomeScreen = ({navigation}: PropsNavigate) => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: 'blue',
+          backgroundColor: 'white',
         }}>
         {/* <MapComponent /> */}
         <Text>Mapa</Text>

@@ -53,7 +53,7 @@ export const UserDrawerNav = () => {
       <Drawer.Screen
         name="Record"
         options={{
-          title: 'Rutas',
+          title: 'Historial',
           drawerIcon: () => {
             return <IconComponent iconName="time" iconColor={colors.text} />;
           },
