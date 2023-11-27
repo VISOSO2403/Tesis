@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   useCameraPermission,
   useCameraDevice,
@@ -7,8 +7,10 @@ import {
   Camera,
   Code,
 } from 'react-native-vision-camera';
+import {FabComponent} from '../components';
+import {PropsNavigate} from './HomeScreen';
 
-const CameraScreen = () => {
+const CameraScreen = ({navigation}: PropsNavigate) => {
   const {hasPermission, requestPermission} = useCameraPermission();
   const device = useCameraDevice('back');
 
@@ -19,21 +21,31 @@ const CameraScreen = () => {
     },
   });
 
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
   if (device == null) {
     return (
       <View style={{flex: 1}}>
-        <Text> Error: No se detecto la camara</Text>
+        <Text> Error: No se detecto la cámara</Text>
       </View>
     );
   }
 
   return (
-    <Camera
-      style={StyleSheet.absoluteFill}
-      device={device}
-      isActive={true}
-      codeScanner={codeScanner}
-    />
+    <View style={{flex: 1}}>
+      <FabComponent
+        iconName="chevron-back-sharp"
+        onPress={() => navigation.goBack()}
+      />
+      <Camera
+        style={StyleSheet.absoluteFill}
+        device={device}
+        isActive={true}
+        codeScanner={codeScanner}
+      />
+    </View>
   );
 };
 

@@ -6,6 +6,7 @@ import RowComponent from './RowComponent';
 import IconComponent from './IconComponent';
 import InputComponent from './InputComponent';
 import LoadingComponent from './LoadingComponent';
+import FabComponent from './FabComponent';
 
 export {
   ContainerComponent,
@@ -15,5 +16,6 @@ export {
   RowComponent,
   IconComponent,
   InputComponent,
-  LoadingComponent
+  LoadingComponent,
+  FabComponent
 }
