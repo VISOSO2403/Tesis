@@ -5,8 +5,6 @@ import useLocation from '../hooks/location/useLocation';
 import {ThemeContext} from '../context/theme/ThemeContext';
 import LoadingComponent from './LoadingComponent';
 import FabComponent from './FabComponent';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import IconComponent from './IconComponent';
 
 interface Props {
   // markers?: Marker[];
@@ -44,6 +42,7 @@ const MapComponent = () => {
     const {latitude, longitude} = userLocation;
     mapViewRef.current?.animateCamera({
       center: {latitude, longitude},
+      pitch: 20,
     });
   }, [userLocation]);
 
@@ -54,12 +53,12 @@ const MapComponent = () => {
 
     mapViewRef.current?.animateCamera({
       center: {latitude, longitude},
-      pitch: 17.7,
+      zoom: 18,
     });
   };
 
   if (!hasLocation) {
-    return <LoadingComponent size={20} />;
+    return <LoadingComponent size={30} />;
   }
 
   return (
@@ -75,13 +74,13 @@ const MapComponent = () => {
         initialRegion={{
           latitude: initialPosition.latitude,
           longitude: initialPosition.longitude,
-          latitudeDelta: 0.005,
-          longitudeDelta: 0.005,
+          latitudeDelta: 0.002,
+          longitudeDelta: 0.002,
         }}
         onTouchStart={() => (following.current = false)}>
         {/* Area para marcadores  */}
 
-        {/* Area para dilimitaciones de zonas  */}
+        {/* Area para delimitaciones de zonas  */}
 
         <Polyline
           coordinates={[
@@ -105,46 +104,14 @@ const MapComponent = () => {
         />
       </MapView>
 
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={{
-          ...stylesMap.locationButton,
-          backgroundColor: colors.primary,
-        }}
-        onPress={centerPosition}>
-        <IconComponent
-          iconName="locate"
-          iconColor={colors.text}
-          iconSize={35}
-          styles={{}}
-        />
-      </TouchableOpacity>
+      <FabComponent
+        iconName="locate"
+        iconSize={30}
+        styles={{bottom: 20, right: 20}}
+        onPress={centerPosition}
+      />
     </>
   );
 };
-
-export const stylesMap = StyleSheet.create({
-  locationButton: {
-    width: 50,
-    aspectRatio: 1 / 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 100,
-    zIndex: 100,
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
-
-    elevation: 4,
-  },
-});
 
 export default MapComponent;

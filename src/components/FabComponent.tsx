@@ -2,16 +2,18 @@ import {StyleSheet, StyleProp, ViewStyle, TouchableOpacity} from 'react-native';
 import React, {useContext} from 'react';
 import {ThemeContext} from '../context/theme/ThemeContext';
 import IconComponent from './IconComponent';
+import {styles} from './LogoComponent';
 
 interface Props {
   iconName: string;
   iconSize?: number;
   onPress: () => void;
   background?: string;
+  styles?: StyleProp<ViewStyle>;
 }
 
 const FabComponent = (props: Props) => {
-  const {iconName, iconSize, onPress, background} = props;
+  const {iconName, iconSize, onPress, background, styles} = props;
 
   const {
     theme: {colors, textButton},
@@ -21,10 +23,10 @@ const FabComponent = (props: Props) => {
     <TouchableOpacity
       activeOpacity={0.8}
       onPress={onPress}
-      style={{
-        ...stylesFab.fabButton,
-        backgroundColor: background ?? colors.primary,
-      }}>
+      style={[
+        {...stylesFab.fabButton, backgroundColor: background ?? colors.primary},
+        styles,
+      ]}>
       <IconComponent
         iconName={iconName}
         iconColor={textButton}
@@ -43,8 +45,6 @@ export const stylesFab = StyleSheet.create({
     borderRadius: 100,
     zIndex: 100,
     position: 'absolute',
-    top: 20,
-    left: 20,
 
     shadowColor: '#000',
     shadowOffset: {
