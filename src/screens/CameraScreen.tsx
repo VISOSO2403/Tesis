@@ -1,18 +1,23 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, Alert} from 'react-native';
+import React, {useCallback, useEffect} from 'react';
 import {
   useCameraPermission,
   useCameraDevice,
   useCodeScanner,
   Camera,
   Code,
+  CameraRuntimeError,
 } from 'react-native-vision-camera';
-import {FabComponent} from '../components';
-import {PropsNavigate} from './HomeScreen';
+import {FabComponent, LoadingComponent, TextComponent} from '../components';
+import {PropsAuth} from './auth/LoginGoogleScreen';
 
-const CameraScreen = ({navigation}: PropsNavigate) => {
+const CameraScreen = ({navigation}: PropsAuth) => {
   const {hasPermission, requestPermission} = useCameraPermission();
-  const device = useCameraDevice('back');
+  const devices = useCameraDevice('back');
+
+  useEffect(() => {
+    checkPermission();
+  }, []);
 
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
@@ -21,26 +26,43 @@ const CameraScreen = ({navigation}: PropsNavigate) => {
     },
   });
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
-
-  if (device == null) {
-    return (
-      <View style={{flex: 1}}>
-        <Text> Error: No se detecto la cámara</Text>
-      </View>
-    );
+  const checkPermission = async () => {
+    const newCameraPermission = await Camera.requestCameraPermission();
+    if (newCameraPermission == null) {
+      Alert.alert('Error', 'Cámara no encontrada');
+    }
+  };
+  if (devices == null) {
+    return <LoadingComponent size={30} />;
   }
 
   return (
     <View style={{flex: 1}}>
-      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
+      <FabComponent
+        iconName="close"
+        styles={{top: 20, left: 20}}
+        onPress={() => navigation.popToTop()}
+      />
+      <View
+        style={{
+          top: 30,
+          alignItems: 'center',
+          zIndex: 100,
+        }}>
+        <TextComponent text="Escanea" size={30} font="bold" />
+      </View>
+
       <Camera
         style={StyleSheet.absoluteFill}
-        device={device}
+        device={devices}
         isActive={true}
         codeScanner={codeScanner}
+      />
+
+      <FabComponent
+        iconName="flashlight"
+        onPress={() => {}}
+        styles={{bottom: 20, right: 20}}
       />
     </View>
   );

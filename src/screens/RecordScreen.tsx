@@ -13,6 +13,7 @@ const RecordScreen = ({navigation}: PropsNavigate) => {
     <View style={{flex: 1}}>
       <FabComponent
         iconName="arrow-back"
+        styles={{top: 20, left: 20}}
         onPress={() => navigation.openDrawer()}
       />
       <ContainerComponent>

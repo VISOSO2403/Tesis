@@ -20,7 +20,11 @@ const HomeScreen = ({navigation}: PropsNavigate) => {
     <View style={{flex: 1}}>
       <MapComponent />
 
-      <FabComponent iconName="menu" onPress={() => navigation.openDrawer()} />
+      <FabComponent
+        iconName="menu"
+        onPress={() => navigation.openDrawer()}
+        styles={{top: 20, left: 20}}
+      />
 
       <TouchableOpacity
         activeOpacity={0.8}
@@ -33,7 +37,7 @@ const HomeScreen = ({navigation}: PropsNavigate) => {
           iconName="scan-outline"
           iconColor={textButton}
           iconSize={90}
-          styles={{top: 10}}
+          styles={{top: 8}}
         />
         <TextComponent
           text="Escanea"

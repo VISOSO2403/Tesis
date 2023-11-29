@@ -14,7 +14,11 @@ const TermsScreen = ({navigation}: PropsAuth) => {
 
   return (
     <View style={{flex: 1}}>
-      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
+      <FabComponent
+        iconName="arrow-back"
+        styles={{top: 20, left: 20}}
+        onPress={() => navigation.goBack()}
+      />
 
       <ContainerComponent isScroll>
         <View style={{top: 30, alignItems: 'center'}}>
