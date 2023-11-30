@@ -16,8 +16,8 @@ export const lightTheme: ThemeState = {
   placeholderColor: 'rgba(0.0.0.0.5)',
   textButton: 'white',
   colors: {
-    primary: '#16A085', //color de botones
-    background: '#1A73E8', //color del fondo
+    primary: '#1a71e0', //color de botones
+    background: '#1c8ce4', //color del fondo
     card: '#FFFFFF',
     text: 'white', //color del texto
     border: '#FFCA28',
