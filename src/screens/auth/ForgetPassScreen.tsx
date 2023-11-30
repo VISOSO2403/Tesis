@@ -24,7 +24,11 @@ const ForgetPassScreen = ({navigation}: PropsAuth) => {
 
   return (
     <View style={{flex: 1}}>
-      <FabComponent iconName="arrow-back" onPress={() => navigation.goBack()} />
+      <FabComponent
+        iconName="arrow-back"
+        onPress={() => navigation.goBack()}
+        styles={{top: 20, left: 16}}
+      />
       <ContainerComponent isScroll>
         <View style={{marginTop: Dimensions.get('window').height * 0.15}}>
           <LogoComponent />

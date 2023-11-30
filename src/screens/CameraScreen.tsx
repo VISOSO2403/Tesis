@@ -39,7 +39,7 @@ const CameraScreen = ({navigation}: PropsAuth) => {
     <View style={{flex: 1}}>
       <FabComponent
         iconName="close"
-        styles={{top: 20, left: 20, zIndex: 100}}
+        styles={{top: 20, left: 16, zIndex: 100}}
         onPress={() => navigation.popToTop()}
       />
       <View

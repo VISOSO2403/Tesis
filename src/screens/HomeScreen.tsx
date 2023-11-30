@@ -23,7 +23,7 @@ const HomeScreen = ({navigation}: PropsNavigate) => {
       <FabComponent
         iconName="menu"
         onPress={() => navigation.openDrawer()}
-        styles={{top: 20, left: 20}}
+        styles={{top: 20, left: 16}}
       />
 
       <TouchableOpacity

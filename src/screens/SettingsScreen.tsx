@@ -1,17 +1,14 @@
-import {View, Text, Switch, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Switch, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useContext, useState} from 'react';
 import {
   ContainerComponent,
   FabComponent,
   IconComponent,
-  InputComponent,
-  RowComponent,
   SectionComponent,
   TextComponent,
 } from '../components';
 import {PropsNavigate} from './HomeScreen';
 import {ThemeContext} from '../context/theme/ThemeContext';
-import {styles} from '../components/LogoComponent';
 
 const SettingsScreen = ({navigation}: PropsNavigate) => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -30,7 +27,7 @@ const SettingsScreen = ({navigation}: PropsNavigate) => {
     <View style={{flex: 1}}>
       <FabComponent
         iconName="arrow-back"
-        styles={{top: 20, left: 20}}
+        styles={{top: 20, left: 16}}
         onPress={() => navigation.goBack()}
       />
 
