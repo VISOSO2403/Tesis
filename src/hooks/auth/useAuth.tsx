@@ -65,10 +65,19 @@ const useAuth = () => {
   };
 
   const handleForgetPassword = async () => {
-    await auth()
-      .sendPasswordResetEmail(email)
-      .then(() => Alert.alert('Información', 'Correo de recuperación enviado'))
-      .catch((err: any) => console.log(err.message));
+    if (email.length > 0) {
+      setChangeLoading(true);
+      await auth()
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          Alert.alert('Información', 'Correo de recuperación enviado'),
+            setChangeLoading(false);
+        })
+        .catch((err: any) => {
+          setChangeLoading(false);
+          console.log(err.message);
+        });
+    } else Alert.alert('Alerta', 'Ingresa tu correo electrónico');
   };
 
   return {

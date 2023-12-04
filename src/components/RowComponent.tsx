@@ -18,7 +18,10 @@ const RowComponent = (props: Props) => {
   const {children, styles, onPress} = props;
 
   return onPress ? (
-    <TouchableOpacity style={[stylesRow.rowCenter, styles]} onPress={onPress}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={[stylesRow.rowCenter, styles]}
+      onPress={onPress}>
       {children}
     </TouchableOpacity>
   ) : (

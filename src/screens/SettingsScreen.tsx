@@ -38,6 +38,7 @@ const SettingsScreen = ({navigation}: PropsNavigate) => {
       <ContainerComponent styles={{top: 80}}>
         {/* Sección para cambiar los datos del usuario */}
         <TouchableOpacity
+          activeOpacity={0.8}
           style={{
             ...stylesSettings.container,
             backgroundColor: colors.primary,
@@ -97,8 +98,9 @@ const SettingsScreen = ({navigation}: PropsNavigate) => {
           />
         </SectionComponent>
 
-        <SectionComponent
-          styles={{
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={{
             ...stylesSettings.container,
             backgroundColor: colors.primary,
           }}>
@@ -106,7 +108,7 @@ const SettingsScreen = ({navigation}: PropsNavigate) => {
             <TextComponent text="Borrar cuenta" font="bold" />
           </View>
           <IconComponent iconName="chevron-forward" />
-        </SectionComponent>
+        </TouchableOpacity>
       </ContainerComponent>
     </View>
   );
