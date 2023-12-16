@@ -58,11 +58,11 @@ const CameraScreen = ({navigation}: PropsAuth) => {
         codeScanner={codeScanner}
       />
 
-      <FabComponent
+      {/* <FabComponent
         iconName="flashlight"
         onPress={() => {}}
         styles={{bottom: 20, right: 20}}
-      />
+      /> */}
     </View>
   );
 };

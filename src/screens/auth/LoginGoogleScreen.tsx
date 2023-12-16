@@ -11,6 +11,7 @@ import {
 import {ThemeContext} from '../../context/theme/ThemeContext';
 import {StackScreenProps} from '@react-navigation/stack';
 import {globalTheme} from '../../theme/globalTheme';
+import useAuth from '../../hooks/auth/useAuth';
 
 export interface PropsAuth extends StackScreenProps<any, any> {}
 
@@ -18,6 +19,8 @@ const LoginGoogleScreen = ({navigation}: PropsAuth) => {
   const {
     theme: {colors, textButton},
   } = useContext(ThemeContext);
+
+  const {handleGoogleLogin} = useAuth();
 
   return (
     <ContainerComponent isScroll>
@@ -48,7 +51,7 @@ const LoginGoogleScreen = ({navigation}: PropsAuth) => {
         <SectionComponent styles={{marginTop: 20}}>
           <RowComponent
             styles={{...globalTheme.buttons, backgroundColor: colors.primary}}
-            onPress={() => {}}>
+            onPress={() => handleGoogleLogin()}>
             <IconComponent iconName="logo-google" />
             <TextComponent
               text=" Continuar con Google"

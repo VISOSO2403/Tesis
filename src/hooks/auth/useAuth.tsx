@@ -80,6 +80,12 @@ const useAuth = () => {
     } else Alert.alert('Alerta', 'Ingresa tu correo electrónico');
   };
 
+  const handleGoogleLogin = async () => {
+    setChangeLoading(true);
+    Alert.alert('Advertencia', 'Servicio actualmente en mantenimiento');
+    setChangeLoading(false);
+  };
+
   return {
     email,
     setEmail,
@@ -91,6 +97,7 @@ const useAuth = () => {
     handleSigInWithEmail,
     handleCreateUserWithEmail,
     handleForgetPassword,
+    handleGoogleLogin,
     handleSignOut,
   };
 };
